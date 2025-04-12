@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Servicios Generales Corporativo</title>
+</head>
+<body>
+  <h2>Ticket rápido de soporte</h2>
+  <button onclick="crearTicket()">Presiona para enviar reporte</button>
+  <p id="respuesta"></p>
+
+  <script>
+    function crearTicket() {
+      fetch("https://script.google.com/macros/s/AKfycbyueVvaCwn6pXGR-SdhpIEPKBcJpVpMjeQ8Z3XNMzWITGe-SJEf3VToQnZ_vO7LqW72/exec", {
+        method: "POST"
+      })
+      .then(res => res.text())
+      .then(msg => document.getElementById("respuesta").innerText = msg)
+      .catch(err => document.getElementById("respuesta").innerText = "Error: " + err);
+    }
+  </script>
+</body>
+</html>
